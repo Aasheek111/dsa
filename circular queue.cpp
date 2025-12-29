@@ -55,8 +55,8 @@ class CircularQueue{
     void getBack(){
         cout<<"the rear data is "<<arr[rear]<<endl;
 
-
     }
+    
 };
 
     int main(){
