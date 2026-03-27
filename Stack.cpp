@@ -1,16 +1,14 @@
 #include <iostream>
 using namespace std;
-
+//we considered the size of the stack 100
 class Stack
 {
-
     int top;
     int arr[100];
-
 public:
     Stack()
     {
-        top = -1;
+    top = -1;
     }
 
     void push(int data)
@@ -35,20 +33,17 @@ public:
     }
     void peek()
     {
-        cout << "The top value is " << arr[top]<<endl;
+        cout << "The top value is " << arr[top] << endl;
     }
     void display()
-    {
-        for (int i = 0; i <= top; i++)
-        {
-            cout << arr[i] << endl;
+    {  for (int i = 0; i <= top; i++)
+        {  cout << arr[i] << endl;
         }
     }
 };
 
 int main()
 {
-
     Stack s1;
     s1.push(12);
     s1.push(15);

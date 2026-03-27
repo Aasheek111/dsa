@@ -18,6 +18,6 @@ void tower(int index, char source, char destination, char aux)
 
 int main()
 {
-    tower(3, 'A', 'C', 'B');
+    tower(2, 'A', 'C', 'B');
     return 0;
 }
