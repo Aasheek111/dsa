@@ -58,7 +58,7 @@ public:
     void display()
     {
         Node *tempnode = head;
-        while (tempnode->next != NULL)
+        while (tempnode != NULL)
         {
             cout << tempnode->data << endl;
             tempnode = tempnode->next;
