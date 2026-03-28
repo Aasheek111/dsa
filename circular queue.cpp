@@ -57,6 +57,26 @@ public:
         else
             cout << "Rear: " << arr[rear] << endl;
     }
+
+    void display() {
+    if (front == -1) {
+        cout << "Queue is Empty\n";
+        return;
+    }
+
+    cout << "Queue elements: ";
+
+    int i = front;
+    while (true) {
+        cout << arr[i] << " ";
+
+        if (i == rear) break;
+
+        i = (i + 1) % size; // op line
+    }
+
+    cout << endl;
+}
 };
 
 int main() {
