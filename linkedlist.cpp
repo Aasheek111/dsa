@@ -10,10 +10,8 @@ struct Node
 
 class Linkedlist
 {
-
     Node *head;
-
-public:
+    public:
     Linkedlist()
     {
         head = NULL;
