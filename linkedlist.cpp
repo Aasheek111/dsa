@@ -1,74 +1,90 @@
 #include <iostream>
 using namespace std;
 
-// we will do insert in front, last and at middle and delete
-struct Node
-{
+struct Node {
     int data;
     Node *next;
 };
 
-class Linkedlist
-{
+class Linkedlist {
     Node *head;
-    public:
-    Linkedlist()
-    {
+
+public:
+    Linkedlist() {
         head = NULL;
     }
 
-    void insertFront(int data)
-    {
+    void insertAtBeginning(int data) {
         Node *newnode = new Node();
         newnode->data = data;
         newnode->next = head;
         head = newnode;
     }
-    void insertBack(int data)
-    {
 
+    void insertAtLast(int data) {
         Node *newnode = new Node();
         newnode->data = data;
         newnode->next = NULL;
-        Node *temp = head;
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = newnode;
-    }
 
-    // this inserts the data aftet the pos
-    // pos means index
-    void insertMid(int data, int pos)
-    {
-        Node *newnode = new Node();
-        newnode->data = data;
-        Node *temp = head;
-
-        for (int i = 0; i < pos && temp != NULL; i++)
-        {
-            temp = temp->next;
+        if (head == NULL) {
+            head = newnode;
+            return;
         }
-        newnode->next = temp->next;
-        temp->next = newnode;
-    }
-    void display()
-    {
+
         Node *tempnode = head;
-        while (tempnode != NULL)
-        {
-            cout << tempnode->data << endl;
+        while (tempnode->next != NULL) {
             tempnode = tempnode->next;
         }
+
+        tempnode->next = newnode;
+    }
+
+    void deleteBeginning() {
+        if (head == NULL) return;
+
+        Node *tempnode = head;
+        head = head->next;
+        delete tempnode;
+    }
+
+    void deleteLast() {
+        if (head == NULL) return;
+
+        if (head->next == NULL) {
+            delete head;
+            head = NULL;
+            return;
+        }
+
+        Node *tempnode = head;
+        while (tempnode->next->next != NULL) {
+            tempnode = tempnode->next;
+        }
+
+        delete tempnode->next;
+        tempnode->next = NULL;
+    }
+
+    void display() {
+        Node *temp = head;
+        while (temp != NULL) {
+            cout << temp->data << " -> ";
+            temp = temp->next;
+        }
+        cout << "NULL\n";
     }
 };
-int main()
-{
 
+int main() {
     Linkedlist l1;
-    l1.insertFront(12);
-    l1.insertFront(14);
-    l1.insertFront(15);
+
+    l1.insertAtBeginning(12);
+    l1.insertAtLast(23);
+    l1.insertAtLast(50);
+
+    l1.deleteBeginning();
+
     l1.display();
+
+    return 0;
 }
